@@ -1,0 +1,466 @@
+body {
+    /*margin:0;*/
+    margin: 0 auto !important;
+    padding: 0;
+    /*margin-left:auto;
+margin-right:auto;*/
+    width: 1792px;
+    height: 879px;
+    /*overflow:visible;*/
+    overflow: auto;
+    background: #FFF;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+#canvasContentWrapper {
+    width: 1792px;
+    height: 879px;
+    overflow: hidden;
+}
+
+#canvasHeaderContentWrapper {
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 10000;
+    clip: rect(0px 780px 90px 0px);
+}
+
+#footerContentWrapper {
+    position: absolute;
+    left: 516px;
+    bottom: 0;
+}
+
+#viewport_TL {
+    margin: 0;
+    padding: 0;
+    height: 0px;
+    width: 0px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    background-color: #3E00FF;
+    opacity: 1.0;
+    pointer-events: none;
+    z-index: 9999;
+}
+
+#viewport_BR {
+    margin: 0;
+    padding: 0;
+    height: 0px;
+    width: 0px;
+    position: fixed;
+    left: 1792px;
+    top: 879px;
+    background-color: #FF0018;
+    opacity: 1.0;
+    pointer-events: none;
+    z-index: 9999;
+}
+
+#footertxt {
+    position: relative;
+    left: 0px;
+    top: 0px;
+    width: 760px;
+    height: 53px;
+    padding: 0px 0px 0px 0px;
+    border: none;
+    white-space: nowrap;
+    color: #E6FAFF;
+    text-shadow: 1px 1px 3px rgba(15, 95, 175, 0.9);
+    font-family: 'Socnhi';
+    font-size: 65%;
+}
+
+#footerlogo {
+    -webkit-filter: drop-shadow(1px 1px 1px rgba(15, 95, 175, 0.6));
+    filter: drop-shadow(0.1em 0.1em 0.1em rgba(15, 95, 175, 0.6));
+}
+
+#col1 {
+    width: 27%;
+    text-align: left;
+    float: left;
+    line-height: normal;
+    font-size: 10.4px;
+}
+
+#col2 {
+    width: 37%;
+    text-align: left;
+    float: left;
+    line-height: normal;
+    font-size: 10.4px;
+}
+
+#col3 {
+    text-align: right;
+    line-height: normal;
+    font-size: 10.4px;
+    display: inline-block;
+}
+
+@font-face {
+    font-family: 'Socnhi';
+    src: url('fonts/socnhi.ttf');
+    src: local('fonts/socnhi.ttf'), url('fonts/socnhi.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+#bgmapid {
+    position: relative;
+    left: 0px;
+    top: 0px;
+    width: 1792px;
+    height: 879px;
+    padding: 0px 0px 0px 0px;
+    border: none;
+    opacity: 0;
+}
+
+#home_ovl {
+    position: absolute;
+    padding: 0px 0px 0px 0px;
+    border: none;
+    pointer-events: none;
+    background-position: 0px 0px;
+    width: 1792px;
+    height: 879px;
+    left: 0px;
+    top: 0px;
+    opacity: 0;
+}
+
+/* icons animation */
+#ico_ht_canvas_wrapper {
+    left: 107px;
+    top: 89px;
+    position: absolute;
+    pointer-events: none;
+    opacity: 0;
+}
+
+#ico_ea_canvas_wrapper {
+    left: 354px;
+    top: 249px;
+    position: absolute;
+    pointer-events: none;
+    opacity: 0;
+}
+
+#ico_thtt_canvas_wrapper {
+    left: 542px;
+    top: 135px;
+    position: absolute;
+    pointer-events: none;
+    opacity: 0;
+}
+
+#bhn_bg_wrapper {
+    left: 733px;
+    top: -101px;
+    position: absolute;
+    pointer-events: none;
+    opacity: 0;
+}
+
+#bhn_bg {
+    background: url('../images/bhn_bg.png') no-repeat;
+    position: absolute;
+    padding: 0px 0px 0px 0px;
+    border: none;
+    pointer-events: none;
+    background-position: 0px 0px;
+    width: 302px;
+    height: 742px;
+    left: 0px;
+    top: 0px;
+}
+
+#ico_bhn_canvas_wrapper {
+    left: 717px;
+    top: 342px;
+    position: absolute;
+    pointer-events: none;
+    opacity: 0;
+}
+
+#ico_blog_canvas_wrapper {
+    left: 852px;
+    top: 153px;
+    position: absolute;
+    pointer-events: none;
+    opacity: 0;
+}
+
+#ico_cahq_canvas_wrapper {
+    left: 1007px;
+    top: 219px;
+    position: absolute;
+    pointer-events: none;
+    opacity: 0;
+}
+
+#ico_nsn_canvas_wrapper {
+    left: 1212px;
+    top: 30px;
+    position: absolute;
+    pointer-events: none;
+    opacity: 0;
+}
+
+#ico_rtv_canvas_wrapper {
+    left: 1556px;
+    top: 60px;
+    position: absolute;
+    pointer-events: none;
+    opacity: 0;
+}
+
+#ico_cvg_canvas_wrapper {
+    left: 1230px;
+    top: 363px;
+    position: absolute;
+    pointer-events: none;
+    opacity: 0;
+}
+
+#ico_hsn_canvas_wrapper {
+    left: 354px;
+    top: 416px;
+    position: absolute;
+    pointer-events: none;
+    opacity: 0;
+}
+
+#ico_nha_canvas_wrapper {
+    left: 55px;
+    top: 528px;
+    position: absolute;
+    pointer-events: none;
+    opacity: 0;
+}
+
+#iconhaavawrapper {
+    pointer-events: none;
+}
+
+#sil_ht,
+#sil_ea,
+#sil_thtt,
+#sil_rtv,
+#sil_nsn,
+#sil_hsn,
+#sil_cvg,
+#sil_cahq,
+#sil_bhn,
+#sil_nha {
+    background: url('../images/home_sil.png') no-repeat;
+    position: absolute;
+    padding: 0px 0px 0px 0px;
+    border: none;
+    pointer-events: none;
+}
+
+#sil_ht {
+    background-position: -31px -42px;
+    width: 188px;
+    height: 233px;
+    left: 155px;
+    top: 99px;
+}
+
+#sil_ea {
+    background-position: -260px -308px;
+    width: 160px;
+    height: 153px;
+    left: 360px;
+    top: 299px;
+}
+
+#sil_thtt {
+    background-position: -480px -65px;
+    width: 161px;
+    height: 230px;
+    left: 603px;
+    top: 155px;
+}
+
+#sil_bhn {
+    background-position: -700px -103px;
+    width: 302px;
+    height: 614px;
+    left: 732px;
+    top: -4px;
+}
+
+#sil_cahq {
+    background-position: -1037px -103px;
+    width: 230px;
+    height: 190px;
+    left: 1023px;
+    top: 273px;
+}
+
+#sil_nsn {
+    background-position: -1333px -65px;
+    width: 192px;
+    height: 244px;
+    left: 1247px;
+    top: 99px;
+}
+
+#sil_cvg {
+    background-position: -1174px -504px;
+    width: 294px;
+    height: 291px;
+    left: 1251px;
+    top: 486px;
+}
+
+#sil_hsn {
+    background-position: -379px -534px;
+    width: 241px;
+    height: 240px;
+    left: 374px;
+    top: 501px;
+}
+
+#sil_nha {
+    background-position: -90px -617px;
+    width: 189px;
+    height: 191px;
+    left: 68px;
+    top: 529px;
+}
+
+#sil_rtv {
+    background-position: -1542px -353px;
+    width: 159px;
+    height: 254px;
+    left: 1580px;
+    top: 95px;
+}
+
+#tnha {
+    position: absolute;
+    left: 161px;
+    top: 686px;
+    width: 99px;
+    height: 25px;
+    padding: 0px 0px 0px 0px;
+    background: url('../images/tnha.gif') no-repeat;
+    border: none;
+    pointer-events: none;
+    display: none;
+}
+
+#icon1 {
+    height: 200px;
+    width: 220px;
+    position: absolute;
+    left: 30px;
+    top: 318px;
+    z-index: auto;
+    border: none;
+    pointer-events: none;
+}
+
+#icon2 {
+    height: 220px;
+    width: 200px;
+    position: absolute;
+    left: 620px;
+    top: 570px;
+    z-index: auto;
+    border: none;
+    pointer-events: none;
+}
+
+#icon3 {
+    height: 220px;
+    width: 200px;
+    position: absolute;
+    left: 986px;
+    top: 560px;
+    z-index: auto;
+    border: none;
+    pointer-events: none;
+}
+
+#icon4 {
+    height: 180px;
+    width: 190px;
+    position: absolute;
+    left: 1580px;
+    top: 420px;
+    z-index: auto;
+    border: none;
+    pointer-events: none;
+}
+
+#icon5 {
+    height: 110px;
+    width: 780px;
+    position: absolute;
+    left: 0px;
+    top: 769px;
+    z-index: auto;
+    border: none;
+    pointer-events: none;
+}
+
+#banner1 {
+    height: 200px;
+    width: 220px;
+    position: absolute;
+    left: 35px;
+    top: 320px;
+    z-index: auto;
+    border: none;
+    visibility: hidden;
+}
+
+#banner2 {
+    height: 220px;
+    width: 200px;
+    position: absolute;
+    left: 620px;
+    top: 570px;
+    z-index: auto;
+    border: none;
+    visibility: hidden;
+}
+
+#banner4 {
+    height: 200px;
+    width: 220px;
+    position: absolute;
+    left: 1056px;
+    top: 460px;
+    z-index: auto;
+    border: none;
+    visibility: hidden;
+}
+
+/*	#socnhi-app-ht, #socnhi-app-ea, */
+#ttbhn {
+    background: url('../images/appsprites.png') no-repeat;
+    position: absolute;
+    padding: 0px 0px 0px 0px;
+    border: none;
+}
+
+#ttbhn {
+    left: 661px;
+    top: 535px;
+    background-position: -101px 0;
+    width: 134px;
+    height: 109px;
+}

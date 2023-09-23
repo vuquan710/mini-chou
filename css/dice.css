@@ -1,0 +1,111 @@
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+  --step--3: clamp(0.61rem, calc(0.39rem + 1.82vw), 1.02rem);
+  --step--2: clamp(0.69rem, calc(0.36rem + 2.62vw), 1.28rem);
+  --step--1: clamp(0.78rem, calc(0.32rem + 3.66vw), 1.60rem);
+  --step-0: clamp(0.88rem, calc(0.25rem + 5.00vw), 2.00rem);
+  --step-1: clamp(0.98rem, calc(0.14rem + 6.74vw), 2.50rem);
+  --step-2: clamp(1.11rem, calc(-0.01rem + 8.97vw), 3.13rem);
+  --step-3: clamp(1.25rem, calc(-0.23rem + 11.83vw), 3.91rem);
+  --step-4: clamp(1.40rem, calc(-0.53rem + 15.47vw), 4.88rem);
+  --step-5: clamp(1.58rem, calc(-0.94rem + 20.12vw), 6.10rem);
+}
+
+image {
+    width: 100%;
+}
+
+body {
+    height: 100vh;
+    background-image: url("https://img.freepik.com/free-photo/starry-night-sky_1048-11828.jpg");
+    display: flex;
+    flex-direction: column;
+    padding: 2em 0;
+    /* justify-content: center; */
+}
+
+.container {
+    width: min(80%, 450px);
+    align-self: center;
+    padding: 2em;
+    box-shadow: 3px 3px 5px rgba(255, 255, 255, 1);
+    /* height: 70vh; */
+}
+
+h1 {
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: var(--step-2);
+    text-align: center;
+    
+    margin-bottom: 5vw;
+}
+
+.dice {
+    font-size: 5rem;
+    color: #fff;
+    text-align: center;
+    margin-bottom: 0.5em;
+    animation: rollDice duration 1s  forwards;
+}
+
+#roll {
+    display: block; /* without display block, the button won't accept margin: 0 auto; effects that tens to center it */
+    cursor: pointer;
+    background: #000;
+    color: #fff;
+    font-size: 1.3rem;
+
+    border-radius: 10px;
+    padding: 0.5em 1em;
+    margin: 0 auto;
+    margin-bottom: 2em;
+    transition: opacity 0.5s ease;
+}
+
+#roll:hover {
+    opacity: 0.5;
+}
+
+.roll-animation {
+    animation: rollDice 0.8s ;
+}
+
+@keyframes rollDice {
+    0% {
+        transform: rotateX(0deg) rotateY(0deg) rotateZ(-720deg)
+    }
+    100% {
+        transform: rotateX(0deg) rotateY(0deg) rotateZ(720deg)
+    }
+
+}
+
+.dice-history li {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #fff;
+    color: #000;
+    font-size: 1.3rem;
+
+    margin-top: 0.8em;
+    padding: 0 0.3em;
+    border-radius: 5px;
+    justify-content: space-between;
+    box-shadow: 3px 3px 3px rgb(185, 163, 163);
+} 
+
+li span {
+    font-size: 2.5rem;
+}
+
+
+
