@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://ogp.me/ns/fb#">
+	<head>
+		<script type="text/javascript" src="js/jquery.js"></script>
+		<script type="text/javascript" src="js/createjs-2015.11.26-fix.min.js"></script>
+		<script type="text/javascript" src="js/jquery.livequery.js"></script> 
+		<script type="text/javascript" src="js/TweenMax.min.js"></script>
+		<script type="text/javascript" src="js/ht2017.js"></script>
+		<script type="text/javascript" src="js/ea2017.js"></script>
+		<script type="text/javascript" src="js/thtt2017.js"></script>
+		<script type="text/javascript" src="js/cvg2017.js"></script>
+		<script type="text/javascript" src="js/bhn2017.js"></script>
+		<script type="text/javascript" src="js/blog2017.js"></script>
+		<script type="text/javascript" src="js/rtv2017.js"></script>
+		<script type="text/javascript" src="js/hsn2017.js"></script>
+		<script type="text/javascript" src="js/nhaava2017.js"></script>
+		<script type="text/javascript" src="js/cahq2017.js"></script>
+		<script type="text/javascript" src="js/nsn2017.js"></script>
+		<script type="text/javascript" src="js/common.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+	</head>
+
+	<body style="height: 100%; padding: 0pt; margin: 0px 0pt 0pt;" class="home">
+		<div id="update_ie8" style="display: none; background-color: #F9EEC8"></div>
+		<div align="center" class="center-page">
+			<script>
+				function homeconfigParseComplete() {
+					homeIconsInit();
+				}
+
+				function homeIconsInit() {
+					init_ht()
+					init_ea()
+					init_nha()
+				}
+
+				function stopAllCanvas() {
+					createjs.Ticker.removeEventListener("tick", stage_ht);
+					createjs.Ticker.removeEventListener("tick", stage_ea);
+					createjs.Ticker.removeEventListener("tick", stage_thtt);
+					createjs.Ticker.removeEventListener("tick", stage_bhn);
+					createjs.Ticker.removeEventListener("tick", stage_blog);
+					createjs.Ticker.removeEventListener("tick", stage_cahq);
+					createjs.Ticker.removeEventListener("tick", stage_nsn);
+					createjs.Ticker.removeEventListener("tick", stage_rtv);
+					createjs.Ticker.removeEventListener("tick", stage_cvg);
+					createjs.Ticker.removeEventListener("tick", stage_hsn);
+					createjs.Ticker.removeEventListener("tick", stage_nha);
+				}
+
+				function cvht_icon_ea_pause() {
+					createjs.Ticker.removeEventListener("tick", stage_ea);
+				}
+				function cvht_icon_blog_pause() {
+					createjs.Ticker.removeEventListener("tick", stage_blog);
+				}
+				function cvht_icon_cahq_pause() {
+					createjs.Ticker.removeEventListener("tick", stage_cahq);
+				}
+				function cvht_icon_nsn_pause() {
+					createjs.Ticker.removeEventListener("tick", stage_nsn);
+				}
+				function cvht_icon_rtv_pause() {
+					createjs.Ticker.removeEventListener("tick", stage_rtv);
+				}
+				function cvht_icon_cvg_pause() {
+					createjs.Ticker.removeEventListener("tick", stage_cvg);
+				}
+				function cvht_icon_hsn_pause() {
+					createjs.Ticker.removeEventListener("tick", stage_hsn);
+				}
+				function cvht_icon_nha_pause() {
+					createjs.Ticker.removeEventListener("tick", stage_nha);
+				}
+				var canvas_ht, stage_ht, exportRoot_ht, anim_container_ht, dom_overlay_container_ht, fnStartAnimation_ht;
+				function init_ht() {
+					canvas_ht = document.getElementById("canvas_ht");
+					anim_container_ht = document.getElementById("animation_container_ht");
+					dom_overlay_container_ht = document.getElementById("dom_overlay_container_ht");
+					createjs.MotionGuidePlugin.install();
+					images_ht = images_ht || {};
+					ss = ss || {};
+					var loader = new createjs.LoadQueue(false);
+					loader.addEventListener("fileload", handleFileLoad_ht);
+					loader.addEventListener("complete", handleComplete_ht);
+					loader.loadManifest(lib_ht.properties.manifest);
+				}
+				function handleFileLoad_ht(evt) {
+					if (evt.item.type == "image") { images_ht[evt.item.id] = evt.result; }
+				}
+				function handleComplete_ht(evt) {
+					TweenMax.to('#sil_ht', 0.5, { autoAlpha: 0 });
+					TweenMax.to('#ico_ht_canvas_wrapper', 0.5, { autoAlpha: 1 });
+					ico_ht = $('#mapht');
+					ico_ht.state = 0;
+					ico_ht.hover(ico_htOver, ico_htOut);
+					ico_ht.on('mousedown touchend', ico_htClickTouch);
+					var queue = evt.target;
+					var ssMetadata = lib_ht.ssMetadata;
+					for (i = 0; i < ssMetadata.length; i++) {
+						ss[ssMetadata[i].name] = new createjs.SpriteSheet({ "images": [queue.getResult(ssMetadata[i].name)], "frames": ssMetadata[i].frames })
+					}
+					exportRoot_ht = new lib_ht.ht2017();
+					stage_ht = new createjs.Stage(canvas_ht);
+					stage_ht.addChild(exportRoot_ht);
+					fnStartAnimation_ht = function () {
+						createjs.Ticker.framerate = lib_ht.properties.fps;
+						createjs.Ticker.addEventListener("tick", stage_ht);
+					}
+					fnStartAnimation_ht();
+				}
+			</script>
+			<script>
+				var canvas_ea, stage_ea, exportRoot_ea, anim_container_ea, dom_overlay_container_ea, fnStartAnimation_ea;
+				function init_ea() {
+					canvas_ea = document.getElementById("canvas_ea");
+					anim_container_ea = document.getElementById("animation_container_ea");
+					dom_overlay_container_ea = document.getElementById("dom_overlay_container_ea");
+					createjs.MotionGuidePlugin.install();
+					images_ea = images_ea || {};
+					ss = ss || {};
+					var loader = new createjs.LoadQueue(false);
+					loader.addEventListener("fileload", handleFileLoad_ea);
+					loader.addEventListener("complete", handleComplete_ea);
+					loader.loadManifest(lib_ea.properties.manifest);
+				}
+				function handleFileLoad_ea(evt) {
+					if (evt.item.type == "image") { images_ea[evt.item.id] = evt.result; }
+				}
+				function handleComplete_ea(evt) {
+					init_thtt();
+					init_cvg();
+					init_hsn();
+					TweenMax.to('#sil_ea', 0.5, { autoAlpha: 0, delay: 0.35 });
+					TweenMax.to('#ico_ea_canvas_wrapper', 0.5, { autoAlpha: 1, delay: 0.35 });
+					ico_ea = $('#mapea');
+					ico_ea.state = 0;
+					ico_ea.hover(ico_eaOver, ico_eaOut);
+					ico_ea.on('mousedown touchend', ico_eaClickTouch);
+					var queue = evt.target;
+					var ssMetadata = lib_ea.ssMetadata;
+					for (i = 0; i < ssMetadata.length; i++) {
+						ss[ssMetadata[i].name] = new createjs.SpriteSheet({ "images": [queue.getResult(ssMetadata[i].name)], "frames": ssMetadata[i].frames })
+					}
+					exportRoot_ea = new lib_ea.ea2017();
+					stage_ea = new createjs.Stage(canvas_ea);
+					stage_ea.addChild(exportRoot_ea);
+					fnStartAnimation_ea = function () {
+						createjs.Ticker.framerate = lib_ea.properties.fps;
+						createjs.Ticker.addEventListener("tick", stage_ea);
+					}
+					fnStartAnimation_ea();
+				}
+			</script>
+			<script>
+				var canvas_thtt, stage_thtt, exportRoot_thtt, anim_container_thtt, dom_overlay_container_thtt, fnStartAnimation_thtt;
+				function init_thtt() {
+					canvas_thtt = document.getElementById("canvas_thtt");
+					anim_container_thtt = document.getElementById("animation_container_thtt");
+					dom_overlay_container_thtt = document.getElementById("dom_overlay_container_thtt");
+					createjs.MotionGuidePlugin.install();
+					images_thtt = images_thtt || {};
+					ss = ss || {};
+					var loader = new createjs.LoadQueue(false);
+					loader.addEventListener("fileload", handleFileLoad_thtt);
+					loader.addEventListener("complete", handleComplete_thtt);
+					loader.loadManifest(lib_thtt.properties.manifest);
+				}
+				function handleFileLoad_thtt(evt) {
+					if (evt.item.type == "image") { images_thtt[evt.item.id] = evt.result; }
+				}
+				function handleComplete_thtt(evt) {
+					// init_bhn()
+					init_blog()
+					init_rtv()
+					TweenMax.to('#sil_thtt', 0.5, { autoAlpha: 0, delay: 0.0 });
+					TweenMax.to('#ico_thtt_canvas_wrapper', 0.5, { autoAlpha: 1, delay: 0.0 });
+					ico_thtt = $('#map_thtt');
+					ico_thtt.state = 0;
+					ico_thtt.hover(ico_thttOver, ico_thttOut);
+					ico_thtt.on('mousedown touchend', ico_thttClickTouch);
+					var queue = evt.target;
+					var ssMetadata = lib_thtt.ssMetadata;
+					for (i = 0; i < ssMetadata.length; i++) {
+						ss[ssMetadata[i].name] = new createjs.SpriteSheet({ "images": [queue.getResult(ssMetadata[i].name)], "frames": ssMetadata[i].frames })
+					}
+					exportRoot_thtt = new lib_thtt.thtt2017();
+					stage_thtt = new createjs.Stage(canvas_thtt);
+					stage_thtt.addChild(exportRoot_thtt);
+					fnStartAnimation_thtt = function () {
+						createjs.Ticker.framerate = lib_thtt.properties.fps;
+						createjs.Ticker.addEventListener("tick", stage_thtt);
+					}
+					fnStartAnimation_thtt();
+				}
+			</script>
+			<script>
+				var canvas_bhn, stage_bhn, exportRoot_bhn, anim_container_bhn, dom_overlay_container_bhn, fnStartAnimation_bhn;
+				function init_bhn() {
+					canvas_bhn = document.getElementById("canvas_bhn");
+					anim_container_bhn = document.getElementById("animation_container_bhn");
+					dom_overlay_container_bhn = document.getElementById("dom_overlay_container_bhn");
+					createjs.MotionGuidePlugin.install();
+					images_bhn = images_bhn || {};
+					ss = ss || {};
+					var loader = new createjs.LoadQueue(false);
+					loader.addEventListener("fileload", handleFileLoad_bhn);
+					loader.addEventListener("complete", handleComplete_bhn);
+					loader.loadManifest(lib_bhn.properties.manifest);
+				}
+				function handleFileLoad_bhn(evt) {
+					if (evt.item.type == "image") { images_bhn[evt.item.id] = evt.result; }
+				}
+				function handleComplete_bhn(evt) {
+					TweenMax.to('#sil_bhn', 0.5, { autoAlpha: 0, delay: 0.0 });
+					TweenMax.to('#ico_bhn_canvas_wrapper', 0.5, { autoAlpha: 1, delay: 0.0 });
+					TweenMax.to('#bhn_bg_wrapper', 0.5, { autoAlpha: 1, delay: 0.0 });
+					ico_bhn = $('#map_bhn');
+					ico_bhn.state = 0;
+					ico_bhn.hover(ico_bhnOver, ico_bhnOut);
+					ico_bhn.on('mousedown touchend', ico_bhnClickTouch);
+					//
+					ico_fb = $('#map_fb');
+					ico_fb.state = 0;
+					ico_fb.hover(ico_fbOver, ico_fbOut);
+					ico_fb.on('mousedown touchend', ico_fbClickTouch);
+					//
+					var queue = evt.target;
+					var ssMetadata = lib_bhn.ssMetadata;
+					for (i = 0; i < ssMetadata.length; i++) {
+						ss[ssMetadata[i].name] = new createjs.SpriteSheet({ "images": [queue.getResult(ssMetadata[i].name)], "frames": ssMetadata[i].frames })
+					}
+					exportRoot_bhn = new lib_bhn.bhn2017();
+					stage_bhn = new createjs.Stage(canvas_bhn);
+					stage_bhn.addChild(exportRoot_bhn);
+					fnStartAnimation_bhn = function () {
+						createjs.Ticker.framerate = lib_bhn.properties.fps;
+						createjs.Ticker.addEventListener("tick", stage_bhn);
+					}
+					fnStartAnimation_bhn();
+				}
+			</script>
+			<script>
+				var canvas_blog, stage_blog, exportRoot_blog, anim_container_blog, dom_overlay_container_blog, fnStartAnimation_blog;
+				function init_blog() {
+					canvas_blog = document.getElementById("canvas_blog");
+					anim_container_blog = document.getElementById("animation_container_blog");
+					dom_overlay_container_blog = document.getElementById("dom_overlay_container_blog");
+					handleComplete_blog();
+				}
+				function handleComplete_blog(evt) {
+					TweenMax.to('#ico_blog_canvas_wrapper', 0.5, { autoAlpha: 1, delay: 0.0 });
+					ico_blog = $('#map_blog');
+					ico_blog.state = 0;
+					ico_blog.hover(ico_blogOver, ico_blogOut);
+					ico_blog.on('mousedown touchend', ico_blogClickTouch);
+					exportRoot_blog = new lib_blog.blog2017();
+					stage_blog = new createjs.Stage(canvas_blog);
+					stage_blog.addChild(exportRoot_blog);
+					fnStartAnimation_blog = function () {
+						createjs.Ticker.framerate = lib_blog.properties.fps;
+						createjs.Ticker.addEventListener("tick", stage_blog);
+					}
+					fnStartAnimation_blog();
+				}
+			</script>
+			<script>
+				var canvas_cahq, stage_cahq, exportRoot_cahq, anim_container_cahq, dom_overlay_container_cahq, fnStartAnimation_cahq;
+				function init_cahq() {
+					canvas_cahq = document.getElementById("canvas_cahq");
+					anim_container_cahq = document.getElementById("animation_container_cahq");
+					dom_overlay_container_cahq = document.getElementById("dom_overlay_container_cahq");
+					createjs.MotionGuidePlugin.install();
+					images_cahq = images_cahq || {};
+					ss = ss || {};
+					var loader = new createjs.LoadQueue(false);
+					loader.installPlugin(createjs.Sound);
+					loader.addEventListener("fileload", handleFileLoad_cahq);
+					loader.addEventListener("complete", handleComplete_cahq);
+					loader.loadManifest(lib_cahq.properties.manifest);
+				}
+				function handleFileLoad_cahq(evt) {
+					if (evt.item.type == "image") { images_cahq[evt.item.id] = evt.result; }
+				}
+				function handleComplete_cahq(evt) {
+					TweenMax.to('#sil_cahq', 0.5, { autoAlpha: 0, delay: 0.0 });
+					TweenMax.to('#ico_cahq_canvas_wrapper', 0.5, { autoAlpha: 1, delay: 0.0 });
+					ico_cahq = $('#map_cahq');
+					ico_cahq.state = 0;
+					ico_cahq.hover(ico_cahqOver, ico_cahqOut);
+					ico_cahq.on('mousedown touchend', ico_cahqClickTouch);
+					var queue = evt.target;
+					var ssMetadata = lib_cahq.ssMetadata;
+					for (i = 0; i < ssMetadata.length; i++) {
+						ss[ssMetadata[i].name] = new createjs.SpriteSheet({ "images": [queue.getResult(ssMetadata[i].name)], "frames": ssMetadata[i].frames })
+					}
+					exportRoot_cahq = new lib_cahq.cahq2017();
+					stage_cahq = new createjs.Stage(canvas_cahq);
+					stage_cahq.addChild(exportRoot_cahq);
+					fnStartAnimation_cahq = function () {
+						createjs.Ticker.framerate = lib_cahq.properties.fps;
+						createjs.Ticker.addEventListener("tick", stage_cahq);
+					}
+					fnStartAnimation_cahq();
+				}
+				function playSound(id, loop) {
+					return createjs.Sound.play(id, createjs.Sound.INTERRUPT_EARLY, 0, 0, loop);
+				}
+			</script>
+			<script>
+				var canvas_nsn, stage_nsn, exportRoot_nsn, anim_container_nsn, dom_overlay_container_nsn, fnStartAnimation_nsn;
+				function init_nsn() {
+					canvas_nsn = document.getElementById("canvas_nsn");
+					anim_container_nsn = document.getElementById("animation_container_nsn");
+					dom_overlay_container_nsn = document.getElementById("dom_overlay_container_nsn");
+					createjs.MotionGuidePlugin.install();
+					images_nsn = images_nsn || {};
+					ss = ss || {};
+					var loader = new createjs.LoadQueue(false);
+					loader.addEventListener("fileload", handleFileLoad_nsn);
+					loader.addEventListener("complete", handleComplete_nsn);
+					loader.loadManifest(lib_nsn.properties.manifest);
+				}
+				function handleFileLoad_nsn(evt) {
+					if (evt.item.type == "image") { images_nsn[evt.item.id] = evt.result; }
+				}
+				function handleComplete_nsn(evt) {
+					TweenMax.to('#sil_nsn', 0.5, { autoAlpha: 0, delay: 0.0 });
+					TweenMax.to('#ico_nsn_canvas_wrapper', 0.5, { autoAlpha: 1, delay: 0.0 });
+					ico_nsn = $('#map_nsn');
+					ico_nsn.state = 0;
+					ico_nsn.hover(ico_nsnOver, ico_nsnOut);
+					ico_nsn.on('mousedown touchend', ico_nsnClickTouch);
+					var queue = evt.target;
+					var ssMetadata = lib_nsn.ssMetadata;
+					for (i = 0; i < ssMetadata.length; i++) {
+						ss[ssMetadata[i].name] = new createjs.SpriteSheet({ "images": [queue.getResult(ssMetadata[i].name)], "frames": ssMetadata[i].frames })
+					}
+					exportRoot_nsn = new lib_nsn.nsn2017();
+					stage_nsn = new createjs.Stage(canvas_nsn);
+					stage_nsn.addChild(exportRoot_nsn);
+					fnStartAnimation_nsn = function () {
+						createjs.Ticker.framerate = lib_nsn.properties.fps;
+						createjs.Ticker.addEventListener("tick", stage_nsn);
+					}
+					fnStartAnimation_nsn();
+				}
+			</script>
+			<script>
+				var canvas_rtv, stage_rtv, exportRoot_rtv, anim_container_rtv, dom_overlay_container_rtv, fnStartAnimation_rtv;
+				function init_rtv() {
+					canvas_rtv = document.getElementById("canvas_rtv");
+					anim_container_rtv = document.getElementById("animation_container_rtv");
+					dom_overlay_container_rtv = document.getElementById("dom_overlay_container_rtv");
+					createjs.MotionGuidePlugin.install();
+					images_rtv = images_rtv || {};
+					ss = ss || {};
+					var loader = new createjs.LoadQueue(false);
+					loader.addEventListener("fileload", handleFileLoad_rtv);
+					loader.addEventListener("complete", handleComplete_rtv);
+					loader.loadManifest(lib_rtv.properties.manifest);
+				}
+				function handleFileLoad_rtv(evt) {
+					if (evt.item.type == "image") { images_rtv[evt.item.id] = evt.result; }
+				}
+				function handleComplete_rtv(evt) {
+					TweenMax.to('#sil_rtv', 0.5, { autoAlpha: 0, delay: 0 });
+					TweenMax.to('#ico_rtv_canvas_wrapper', 0.5, { autoAlpha: 1, delay: 0 });
+					ico_rtv = $('#map_rtv');
+					ico_rtv.state = 0;
+					ico_rtv.hover(ico_rtvOver, ico_rtvOut);
+					ico_rtv.on('mousedown touchend', ico_rtvClickTouch);
+					var queue = evt.target;
+					var ssMetadata = lib_rtv.ssMetadata;
+					for (i = 0; i < ssMetadata.length; i++) {
+						ss[ssMetadata[i].name] = new createjs.SpriteSheet({ "images": [queue.getResult(ssMetadata[i].name)], "frames": ssMetadata[i].frames })
+					}
+					exportRoot_rtv = new lib_rtv.rtv2017();
+					stage_rtv = new createjs.Stage(canvas_rtv);
+					stage_rtv.addChild(exportRoot_rtv);
+					fnStartAnimation_rtv = function () {
+						createjs.Ticker.framerate = lib_rtv.properties.fps;
+						createjs.Ticker.addEventListener("tick", stage_rtv);
+					}
+					fnStartAnimation_rtv();
+				}
+			</script>
+			<script>
+				var canvas_cvg, stage_cvg, exportRoot_cvg, anim_container_cvg, dom_overlay_container_cvg, fnStartAnimation_cvg;
+				function init_cvg() {
+					canvas_cvg = document.getElementById("canvas_cvg");
+					anim_container_cvg = document.getElementById("animation_container_cvg");
+					dom_overlay_container_cvg = document.getElementById("dom_overlay_container_cvg");
+					createjs.MotionGuidePlugin.install();
+					images_cvg = images_cvg || {};
+					ss = ss || {};
+					var loader = new createjs.LoadQueue(false);
+					loader.addEventListener("fileload", handleFileLoad_cvg);
+					loader.addEventListener("complete", handleComplete_cvg);
+					loader.loadManifest(lib_cvg.properties.manifest);
+				}
+				function handleFileLoad_cvg(evt) {
+					if (evt.item.type == "image") { images_cvg[evt.item.id] = evt.result; }
+				}
+				function handleComplete_cvg(evt) {
+					TweenMax.to('#sil_cvg', 0.5, { autoAlpha: 0, delay: 0 });
+					TweenMax.to('#ico_cvg_canvas_wrapper', 0.5, { autoAlpha: 1, delay: 0 });
+					ico_cvg = $('#map_cvg');
+					ico_cvg.state = 0;
+					ico_cvg.hover(ico_cvgOver, ico_cvgOut);
+					ico_cvg.on('mousedown touchend', ico_cvgClickTouch);
+					var queue = evt.target;
+					var ssMetadata = lib_cvg.ssMetadata;
+					for (i = 0; i < ssMetadata.length; i++) {
+						ss[ssMetadata[i].name] = new createjs.SpriteSheet({ "images": [queue.getResult(ssMetadata[i].name)], "frames": ssMetadata[i].frames })
+					}
+					exportRoot_cvg = new lib_cvg.cvg2017();
+					stage_cvg = new createjs.Stage(canvas_cvg);
+					stage_cvg.addChild(exportRoot_cvg);
+					fnStartAnimation_cvg = function () {
+						createjs.Ticker.framerate = lib_cvg.properties.fps;
+						createjs.Ticker.addEventListener("tick", stage_cvg);
+					}
+					fnStartAnimation_cvg();
+				}
+			</script>
+			<script>
+				var canvas_hsn, stage_hsn, exportRoot_hsn, anim_container_hsn, dom_overlay_container_hsn, fnStartAnimation_hsn;
+				function init_hsn() {
+					canvas_hsn = document.getElementById("canvas_hsn");
+					anim_container_hsn = document.getElementById("animation_container_hsn");
+					dom_overlay_container_hsn = document.getElementById("dom_overlay_container_hsn");
+					createjs.MotionGuidePlugin.install();
+					images_hsn = images_hsn || {};
+					ss = ss || {};
+					var loader = new createjs.LoadQueue(false);
+					loader.addEventListener("fileload", handleFileLoad_hsn);
+					loader.addEventListener("complete", handleComplete_hsn);
+					loader.loadManifest(lib_hsn.properties.manifest);
+				}
+				function handleFileLoad_hsn(evt) {
+					if (evt.item.type == "image") { images_hsn[evt.item.id] = evt.result; }
+				}
+				function handleComplete_hsn(evt) {
+					TweenMax.to('#sil_hsn', 0.5, { autoAlpha: 0, delay: 0.0 });
+					TweenMax.to('#ico_hsn_canvas_wrapper', 0.5, { autoAlpha: 1, delay: 0.0 });
+					ico_hsn = $('#map_hsn');
+					ico_hsn.state = 0;
+					ico_hsn.hover(ico_hsnOver, ico_hsnOut);
+					ico_hsn.on('mousedown touchend', ico_hsnClickTouch);
+					var queue = evt.target;
+					var ssMetadata = lib_hsn.ssMetadata;
+					for (i = 0; i < ssMetadata.length; i++) {
+						ss[ssMetadata[i].name] = new createjs.SpriteSheet({ "images": [queue.getResult(ssMetadata[i].name)], "frames": ssMetadata[i].frames })
+					}
+					exportRoot_hsn = new lib_hsn.hsn2017();
+					stage_hsn = new createjs.Stage(canvas_hsn);
+					stage_hsn.addChild(exportRoot_hsn);
+					fnStartAnimation_hsn = function () {
+						createjs.Ticker.framerate = lib_hsn.properties.fps;
+						createjs.Ticker.addEventListener("tick", stage_hsn);
+					}
+					fnStartAnimation_hsn();
+				}
+			</script>
+			<script>
+				var canvas_nha, stage_nha, exportRoot_nha, anim_container_nha, dom_overlay_container_nha, fnStartAnimation_nha;
+				function init_nha() {
+					canvas_nha = document.getElementById("canvas_nha");
+					anim_container_nha = document.getElementById("animation_container_nha");
+					dom_overlay_container_nha = document.getElementById("dom_overlay_container_nha");
+					createjs.MotionGuidePlugin.install();
+					images_nha = images_nha || {};
+					ss = ss || {};
+					var loader = new createjs.LoadQueue(false);
+					loader.addEventListener("fileload", handleFileLoad_nha);
+					loader.addEventListener("complete", handleComplete_nha);
+					loader.loadManifest(lib_nha.properties.manifest);
+				}
+				function handleFileLoad_nha(evt) {
+					if (evt.item.type == "image") { images_nha[evt.item.id] = evt.result; }
+				}
+				function handleComplete_nha(evt) {
+					init_cahq()
+					init_nsn()
+					TweenMax.to('#sil_nha', 0.5, { autoAlpha: 0, delay: 0.15 });
+					TweenMax.to('#ico_nha_canvas_wrapper', 0.5, { autoAlpha: 1, delay: 0.15 });
+					ico_nha = $('#map_nha');
+					ico_nha.state = 0;
+					ico_nha.hover(ico_nhaOver, ico_nhaOut);
+					ico_nha.on('mousedown touchend', ico_nhaClickTouch);
+					//
+					var queue = evt.target;
+					var ssMetadata = lib_nha.ssMetadata;
+					for (i = 0; i < ssMetadata.length; i++) {
+						ss[ssMetadata[i].name] = new createjs.SpriteSheet({ "images": [queue.getResult(ssMetadata[i].name)], "frames": ssMetadata[i].frames })
+					}
+					exportRoot_nha = new lib_nha.nhaava2017();
+					stage_nha = new createjs.Stage(canvas_nha);
+					stage_nha.addChild(exportRoot_nha);
+					fnStartAnimation_nha = function () {
+						createjs.Ticker.framerate = lib_nha.properties.fps;
+						createjs.Ticker.addEventListener("tick", stage_nha);
+					}
+					fnStartAnimation_nha();
+				}
+			</script>
+			<!--2017 icons END-->
+			<div id="viewport_TL" style="left: 0px; top: 0px;"></div>
+			<div id="viewport_BR" style="left: 760px; top: 839px;"></div>
+			<div id="wrapper">
+				<div id="canvasContentWrapper">
+					<div id="canvasContent">
+						<div id="bgmapid"
+							style="background-image: url(&quot;images/bg_night.png&quot;); visibility: inherit; opacity: 1;">
+							<img src=""
+								style="width:1792px;height:879px;padding:0; border:none;top:0;left:0;position:absolute; opacity:0;"
+								usemap="#htbgmap" draggable="false" oncontextmenu="return false">
+							<div id="sil_bhn" style="visibility: hidden; opacity: 0;"></div>
+							<div id="ico_ht_canvas_wrapper" style="visibility: inherit; opacity: 1;">
+								<div id="animation_container_ht"
+									style="background-color:rgba(255, 255, 255, 0.00); width:310px; height:335px">
+									<canvas id="canvas_ht" width="310" height="335"
+										style="position: absolute; display: block; background-color:rgba(255, 255, 255, 0.00);"></canvas>
+									<div id="dom_overlay_container_ht"
+										style="pointer-events:none; overflow:hidden; width:310px; height:335px; position: absolute; left: 0px; top: 0px; display: block;">
+									</div>
+								</div>
+							</div>
+							<div id="icon1">
+								<img id="icon1_img">
+							</div>
+							<div id="banner1">
+								<div id="admzone38697"></div>
+							</div>
+							<div id="ico_ea_canvas_wrapper" style="visibility: inherit; opacity: 1;">
+								<div id="animation_container_ea"
+									style="background-color:rgba(173, 239, 254, 0.00); width:210px; height:230px">
+									<canvas id="canvas_ea" width="210" height="230"
+										style="position: absolute; display: block; background-color:rgba(173, 239, 254, 0.00);"></canvas>
+									<div id="dom_overlay_container_ea"
+										style="pointer-events:none; overflow:hidden; width:210px; height:230px; position: absolute; left: 0px; top: 0px; display: block;">
+									</div>
+								</div>
+							</div>
+							<div id="ico_thtt_canvas_wrapper" style="visibility: inherit; opacity: 1;">
+								<div id="animation_container_thtt"
+									style="background-color:rgba(173, 239, 254, 0.00); width:244px; height:310px">
+									<canvas id="canvas_thtt" width="244" height="310"
+										style="position: absolute; display: block; background-color:rgba(173, 239, 254, 0.00);"></canvas>
+									<div id="dom_overlay_container_thtt"
+										style="pointer-events:none; overflow:hidden; width:244px; height:310px; position: absolute; left: 0px; top: 0px; display: block;">
+									</div>
+								</div>
+							</div>
+							<div id="bhn_bg_wrapper" style="visibility: inherit; opacity: 1;">
+								<div id="bhn_bg"></div>
+							</div>
+							<div id="ico_bhn_canvas_wrapper" style="visibility: inherit; opacity: 1;">
+								<div id="animation_container_bhn"
+									style="background-color:rgba(173, 239, 254, 0.00); width:325px; height:315px">
+									<canvas id="canvas_bhn" width="325" height="315"
+										style="position: absolute; display: block; background-color:rgba(173, 239, 254, 0.00);"></canvas>
+									<div id="dom_overlay_container_bhn"
+										style="pointer-events:none; overflow:hidden; width:325px; height:315px; position: absolute; left: 0px; top: 0px; display: block;">
+									</div>
+								</div>
+							</div>
+							<div id="ico_blog_canvas_wrapper" style="visibility: inherit; opacity: 1;">
+								<div id="animation_container_blog"
+									style="background-color:rgba(255, 255, 255, 0.00); width:175px; height:160px">
+									<canvas id="canvas_blog" width="175" height="160"
+										style="position: absolute; display: block; background-color:rgba(255, 255, 255, 0.00);"></canvas>
+									<div id="dom_overlay_container_blog"
+										style="pointer-events:none; overflow:hidden; width:175px; height:160px; position: absolute; left: 0px; top: 0px; display: block;">
+									</div>
+								</div>
+							</div>
+							<div id="ico_nsn_canvas_wrapper" style="visibility: inherit; opacity: 1;">
+								<div id="animation_container_nsn"
+									style="background-color:rgba(173, 239, 254, 0.00); width:280px; height:340px">
+									<canvas id="canvas_nsn" width="280" height="340"
+										style="position: absolute; display: block; background-color:rgba(173, 239, 254, 0.00);"></canvas>
+									<div id="dom_overlay_container_nsn"
+										style="pointer-events:none; overflow:hidden; width:280px; height:340px; position: absolute; left: 0px; top: 0px; display: block;">
+									</div>
+								</div>
+							</div>
+							<div id="ico_cahq_canvas_wrapper" style="visibility: inherit; opacity: 1;">
+								<div id="animation_container_cahq"
+									style="background-color:rgba(255, 255, 255, 0.00); width:270px; height:270px">
+									<canvas id="canvas_cahq" width="270" height="270"
+										style="position: absolute; display: block; background-color:rgba(255, 255, 255, 0.00);"></canvas>
+									<div id="dom_overlay_container_cahq"
+										style="pointer-events:none; overflow:hidden; width:270px; height:270px; position: absolute; left: 0px; top: 0px; display: block;">
+									</div>
+								</div>
+							</div>
+							<div id="ico_rtv_canvas_wrapper" style="visibility: inherit; opacity: 1;">
+								<div id="animation_container_rtv"
+									style="background-color:rgba(255, 255, 255, 0.00); width:195px; height:280px">
+									<canvas id="canvas_rtv" width="195" height="280"
+										style="position: absolute; display: block; background-color:rgba(255, 255, 255, 0.00);"></canvas>
+									<div id="dom_overlay_container_rtv"
+										style="pointer-events:none; overflow:hidden; width:195px; height:280px; position: absolute; left: 0px; top: 0px; display: block;">
+									</div>
+								</div>
+							</div>
+							<div id="icon4">
+								<img id="icon4_img">
+							</div>
+							<div id="banner4">
+								<div id="admzone38699"></div>
+							</div>
+							<div id="ico_cvg_canvas_wrapper" style="visibility: inherit; opacity: 1;">
+								<div id="animation_container_cvg"
+									style="background-color:rgba(255, 255, 255, 0.00); width:337px; height:450px">
+									<canvas id="canvas_cvg" width="337" height="450"
+										style="position: absolute; display: block; background-color:rgba(255, 255, 255, 0.00);"></canvas>
+									<div id="dom_overlay_container_cvg"
+										style="pointer-events:none; overflow:hidden; width:337px; height:450px; position: absolute; left: 0px; top: 0px; display: block;">
+									</div>
+								</div>
+							</div>
+							<div id="ico_hsn_canvas_wrapper" style="visibility: inherit; opacity: 1;">
+								<div id="animation_container_hsn"
+									style="background-color:rgba(173, 239, 254, 0.00); width:265px; height:365px">
+									<canvas id="canvas_hsn" width="265" height="365"
+										style="position: absolute; display: block; background-color:rgba(173, 239, 254, 0.00);"></canvas>
+									<div id="dom_overlay_container_hsn"
+										style="pointer-events:none; overflow:hidden; width:265px; height:365px; position: absolute; left: 0px; top: 0px; display: block;">
+									</div>
+								</div>
+							</div>
+							<div id="ico_nha_canvas_wrapper" style="visibility: inherit; opacity: 1;">
+								<div id="animation_container_nha"
+									style="background-color:rgba(173, 239, 254, 0.00); width:210px; height:215px">
+									<canvas id="canvas_nha" width="210" height="215"
+										style="position: absolute; display: block; background-color:rgba(173, 239, 254, 0.00);"></canvas>
+									<div id="dom_overlay_container_nha"
+										style="pointer-events:none; overflow:hidden; width:210px; height:215px; position: absolute; left: 0px; top: 0px; display: block;">
+									</div>
+								</div>
+							</div>
+							<div id="iconhaavawrapper"></div>
+							<!-- <div id="tnha" style="display: block;"></div> -->
+							<map id="htbgmap" name="htbgmap">
+								<area shape="poly" id="mapht" alt="" title=""
+									coords="232,145,254,100,280,99,281,113,264,143,312,157,326,176,340,195,336,219,315,231,319,237,290,248,286,287,326,296,338,305,339,312,323,322,272,332,203,328,162,315,158,304,179,294,174,268,176,253,222,224,197,202,208,163"
+									href="/Hang-truyen.html" target="">
+								<area shape="poly" id="mapea" alt="" title=""
+									coords="377,365,360,355,366,344,365,322,385,309,400,309,418,298,477,311,491,326,501,327,501,338,509,358,516,366,515,384,502,403,450,432,419,425,401,417,390,395,382,377"
+									href="/English-adventure.html" target="">
+								<area shape="poly" id="map_thtt" alt="" title=""
+									coords="694,157,708,155,720,176,718,191,718,215,734,229,747,271,744,291,752,298,751,333,740,340,703,348,667,348,636,336,625,316,616,282,622,252,636,220,662,213,667,184,673,165,679,160"
+									href="http://truonghoctructuyen.socnhi.com/" target="">
+								<area shape="poly" id="map_blog" alt="" title=""
+									coords="949,159,978,167,1006,163,1021,155,1022,193,1021,210,1009,217,978,214,965,196,960,210,944,227,949,237,977,239,978,264,972,283,941,300,942,314,855,314,855,159"
+									href="/Blog.html" target="">
+								<area shape="poly" id="map_bhn" alt="" title=""
+									coords="816,372,827,388,853,362,955,361,971,376,938,396,937,407,968,411,968,433,940,450,957,472,955,485,981,504,972,515,956,515,945,533,917,541,903,564,886,562,880,534,874,526,873,510,849,505,834,511,781,522,764,518,781,494,818,442,816,419,802,379"
+									href="/Bac-hoc-nhi.html" target="">
+								<area shape="poly" id="map_cahq" alt="" title=""
+									coords="1053,277,1091,273,1109,295,1106,307,1150,301,1166,299,1175,302,1174,311,1185,323,1187,357,1175,381,1175,409,1171,414,1147,416,1159,437,1152,443,1141,438,1132,420,1104,421,1097,408,1065,402,1060,373,1069,365,1064,339,1031,335,1023,323,1027,299"
+									href="/Choi-anh-han-quoc.html" target="">
+								<area shape="poly" id="map_nsn" alt="" title=""
+									coords="1295,119,1323,104,1353,109,1377,132,1418,104,1430,103,1430,126,1419,136,1426,146,1416,167,1375,200,1352,197,1361,246,1402,259,1398,228,1410,215,1420,230,1445,245,1466,236,1473,242,1461,263,1426,278,1414,277,1425,304,1419,315,1361,302,1303,309,1287,318,1275,294,1256,300,1238,290,1223,264,1222,249,1245,262,1267,256,1281,244,1287,248,1292,276,1347,243,1338,215,1322,197,1308,202,1259,162,1250,144,1244,106,1251,98"
+									href="/Nghe-si-nhi.html" target="">
+								<area shape="poly" id="map_rtv" alt="" title=""
+									coords="1620,116,1660,116,1699,132,1715,159,1733,143,1745,143,1744,155,1737,183,1744,213,1734,214,1716,192,1701,218,1693,224,1664,323,1642,331,1627,324,1603,317,1592,318,1559,251,1564,239,1604,239,1581,205,1579,179,1597,133"
+									href="/Rap-tivi.html" target="">
+								<area shape="poly" id="map_cvg" alt="" title=""
+									coords="1386,527,1399,511,1390,501,1397,495,1434,502,1459,522,1504,545,1539,564,1525,601,1526,621,1555,634,1514,675,1529,688,1530,706,1501,716,1459,707,1437,714,1405,706,1398,682,1361,684,1348,696,1320,701,1302,696,1291,666,1274,665,1285,584,1312,567,1332,540"
+									href="#" target="">
+								<area shape="poly" id="map_hsn" alt="" title=""
+									coords="448,506,479,528,470,558,451,584,479,579,490,609,520,608,550,620,567,588,578,603,557,636,540,660,546,676,562,683,550,692,507,702,504,711,486,712,466,698,437,709,401,697,401,676,433,666,429,606,441,574,421,549,420,528"
+									href="/Hoa-si-nhi.html" target="">
+								<area shape="poly" id="map_nha" alt="" title=""
+									coords="159,533,190,531,213,543,225,569,210,580,217,609,247,616,257,644,259,714,79,714,79,622,65,614,78,583,118,575,128,561,142,544"
+									href="javascript:socnhi.showRegisterPopup" target="">
+								<area shape="circle" id="map_fb" alt="" title="" coords="985,561,46"
+									href="https://www.facebook.com/socnhi.com" target="">
+							</map>
+							<a href="/Hang-truyen.html" target="">
+								<div id="sil_ht" style="visibility: hidden; opacity: 0;"></div>
+							</a>
+							<a href="/English-adventure.html" target="">
+								<div id="sil_ea" style="visibility: hidden; opacity: 0;"></div>
+							</a>
+							<a href="http://truonghoctructuyen.socnhi.com/" target="">
+								<div id="sil_thtt" style="visibility: hidden; opacity: 0;"></div>
+							</a>
+							<a href="/Blog.html" target="">
+								<div id="silblog"></div>
+							</a>
+							<a href="/Choi-anh-han-quoc.html" target="">
+								<div id="sil_cahq" style="visibility: hidden; opacity: 0;"></div>
+							</a>
+							<a href="/Nghe-si-nhi.html" target="">
+								<div id="sil_nsn" style="visibility: hidden; opacity: 0;"></div>
+							</a>
+							<a href="/Rap-tivi.html" target="">
+								<div id="sil_rtv" style="visibility: hidden; opacity: 0;"></div>
+							</a>
+							<a href="#" target="">
+								<div id="sil_cvg" style="visibility: hidden; opacity: 0;"></div>
+							</a>
+							<a href="/Hoa-si-nhi.html" target="">
+								<div id="sil_hsn" style="visibility: hidden; opacity: 0;"></div>
+							</a>
+							<a href="" target="">
+								<div id="sil_nha" style="visibility: hidden; opacity: 0;"></div>
+							</a>
+							<div id="home_ovl"
+								style="background-image: url(&quot;images/home_ovl.png&quot;); visibility: inherit; opacity: 1;">
+							</div>
+							<div id="butterfly"
+								style="position: absolute; left: 285px; top: 510px; width: 98px; height: 60px; padding: 0px 0px 0px 0px; background: url('images/butterfly.gif') no-repeat; border: none; pointer-events: none;">
+							</div>
+							<div id="icon2">
+								<img id="icon2_img">
+							</div>
+							<div id="banner2">
+								<div id="admzone38698"></div>
+							</div>
+							<div id="icon3">
+								<img id="icon3_img">
+							</div>
+							<div id="icon5">
+								<img id="icon5_img">
+							</div>
+							<!-- <a href="/bac-hoc-nhi/tranhtai.html">
+								<div id="ttbhn"></div>
+							</a> -->
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+
+</html>
